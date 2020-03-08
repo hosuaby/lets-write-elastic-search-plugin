@@ -1,0 +1,77 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath 'org.elasticsearch.gradle:build-tools:7.6.1'
+    }
+}
+
+group = 'io.hosuaby'
+version = '0.0.0-es7.6.1'
+
+apply plugin: 'java'
+apply plugin: 'elasticsearch.esplugin'  // apply esplugin
+
+sourceCompatibility = 13
+targetCompatibility = 13
+
+// License of this project
+licenseFile = rootProject.file('LICENSE.txt')
+
+// Copyright notices
+noticeFile = rootProject.file('NOTICE.txt')
+
+// Configure esplugin
+esplugin {
+    name 'hello-world-plugin'
+    description 'Hello world plugin for Elasticsearch'
+    classname 'io.hosuaby.elasticsearch.HelloWorldPlugin'
+    // license of this project
+    licenseFile = rootProject.file('LICENSE.txt')
+    // copyright notices
+    noticeFile = rootProject.file('NOTICE.txt')
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter{
+        url "https://jcenter.bintray.com/"
+        metadataSources{
+            artifact()
+        }
+    }
+}
+
+dependencies {
+    compile 'org.elasticsearch:elasticsearch:7.6.1'
+    compile group: 'org.elasticsearch.distribution.integ-test-zip', name: 'elasticsearch', version: '7.6.1'
+    testCompile 'org.elasticsearch.test:framework:7.6.1'
+
+    compile "org.apache.lucene:lucene-expressions:8.3.0"
+    compile 'org.antlr:antlr4-runtime:4.5.1-1'
+    compile 'org.ow2.asm:asm:5.0.4'
+    compile 'org.ow2.asm:asm-commons:5.0.4'
+    compile 'org.ow2.asm:asm-tree:5.0.4'
+    compile 'com.o19s:RankyMcRankFace:0.1.1'
+    compile "com.github.spullara.mustache.java:compiler:0.9.3"
+
+
+}
+
+// Set to false to not use elasticsearch checkstyle rules
+checkstyleMain.enabled = true
+checkstyleTest.enabled = true
+
+// FIXME dependency license check needs to be enabled
+dependencyLicenses.enabled = false
+
+// FIXME thirdparty audit needs to be enabled
+thirdPartyAudit.enabled = false
+
+// Uncomment this to skip license header checks
+licenseHeaders.enabled = false

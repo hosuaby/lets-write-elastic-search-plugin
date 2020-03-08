@@ -1,0 +1,3 @@
+rootProject.name = 'lets-write-elastic-search-plugin'
+include 'hello-world-plugin'
+

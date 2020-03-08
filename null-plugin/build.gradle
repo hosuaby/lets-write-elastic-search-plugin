@@ -27,9 +27,9 @@ noticeFile = rootProject.file('NOTICE')
 
 // Configure esplugin
 esplugin {
-    name 'hello-world-plugin'
-    description 'Hello world plugin for Elasticsearch'
-    classname 'io.hosuaby.elasticsearch.HelloWorldPlugin'
+    name 'null-plugin'
+    description 'The minimal working plugin for Elasticsearch'
+    classname 'io.hosuaby.elasticsearch.NullPlugin'
 }
 
 // TODO: enable tests when you have them

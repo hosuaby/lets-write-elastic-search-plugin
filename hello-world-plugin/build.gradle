@@ -14,32 +14,23 @@ group = 'io.hosuaby'
 version = '0.0.0'
 
 apply plugin: 'java'
-apply plugin: 'elasticsearch.esplugin'  // apply esplugin
+apply plugin: 'elasticsearch.esplugin'
 
 sourceCompatibility = JavaVersion.VERSION_13
 targetCompatibility = JavaVersion.VERSION_13
 
-// License of this project
 licenseFile = rootProject.file('LICENSE')
-
-// Copyright notices
 noticeFile = rootProject.file('NOTICE')
 
-// Configure esplugin
 esplugin {
     name 'hello-world-plugin'
     description 'Hello world plugin for Elasticsearch'
     classname 'io.hosuaby.elasticsearch.HelloWorldPlugin'
 }
 
-// TODO: enable tests when you have them
 test.enabled = false
 integTestRunner.enabled = false
-
-// Logger check does not run on jdk 11+ bytecode.
 loggerUsageCheck.enabled = false
-
-// Enable it if you include license headers in all your source files
 licenseHeaders.enabled = false
 
 repositories {

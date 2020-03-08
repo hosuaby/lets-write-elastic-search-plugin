@@ -9,3 +9,8 @@ $ ../gradlew clean build run
 ```
 
 And open in web browser http://localhost:9200/hello .
+
+You must see:
+```text
+Hello world!
+```
